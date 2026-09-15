@@ -1,2 +1,2 @@
-# go-plp
+# qiskit-plp
 CS 330 Golang Programming Language Project
