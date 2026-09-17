@@ -1,2 +1,2 @@
 # Julia-plp
-CS 330 Golang Programming Language Project
+CS 330 Julia Programming Language Project
