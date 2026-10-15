@@ -20,8 +20,10 @@ Finally, run the program as explained above, and you have just written your firs
 ### Comments
 To write comments in Julia, '#' is used for a single line and '#= some comment =#' is used for a multi-line comment.
 ## Data Types and Naming Conventions
-There are lots of data types in Julia such has Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Int128, UInt128, Float16, Float32, Float64, Char, String, Bool, Composite(struct), Rational, Complex, Array, Vector, Tuple, Dict, Set, Union, etc. As with many programming languages, there are plenty of data types but for this section, I will mainly be focusing on Ints, Floats, Chars, Strings, and maybe Bools. \
+There are lots of data types in Julia such has Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Int128, UInt128, Float16, Float32, Float64, Char, String, Bool, Composite(struct), Rational, Complex, Array, Vector, Tuple, Dict, Set, Union, etc. As with many programming languages, there are plenty of data types but for this section, I will mainly be focusing on Ints, Floats, Chars, Strings, and maybe Bools.
+
 Overall, all of the primitive data types, and Strings, are immutable however, you can make the Composite data type mutable by adding the word _mutable_ in front of the declaration, like so: _mutable struct ..._. I found this explanation from the Julia documentation about how mutable structs are possible to be helpful
 > “In order to support mutation, such objects are generally allocated on the heap, and have stable memory addresses. A mutable object is like a little container that might hold different values over time, and so can only be reliably identified with its address.”
+
 In Julia, _mutable struct_ is its own reserved two-word sequence. The other reserved two-word sequences are _abstract type_ and _primitive type_. The list of reserved keywords in Julia is the following: _baremodule, begin, break, catch, const, continue, do, else, elseif, end, export, false, finally, for, function, global, if, import, let, local, macro, module, quote, return, struct, true, try, using, while_. Keywords cannot be used as variable names, however, the individual words _mutable, abstract, primitive_ and _type_ are allowed variable names.
 ### Naming Conventions
