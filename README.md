@@ -37,5 +37,14 @@ Overall, all of the primitive data types, and Strings, are immutable however, yo
 > “In order to support mutation, such objects are generally allocated on the heap, and have stable memory addresses. A mutable object is like a little container that might hold different values over time, and so can only be reliably identified with its address.”
 
 In Julia, _mutable struct_ is its own reserved two-word sequence. The other reserved two-word sequences are _abstract type_ and _primitive type_. The list of reserved keywords in Julia is the following: _baremodule, begin, break, catch, const, continue, do, else, elseif, end, export, false, finally, for, function, global, if, import, let, local, macro, module, quote, return, struct, true, try, using, while_. Keywords cannot be used as variable names, however, the individual words _mutable, abstract, primitive_ and _type_ are allowed variable names.
-### Naming Conventions
-The naming requirements for variables are they they need to start with a letter, underscore, or a subset of Unicode characters that are greater than the code 00A0. This subset allows characters like accented letters, currency, any math symbol, and greek letters, and much more. The following characters in a variable name can include digits 0-9, an exclamation point !, and lots of other Unicode characters. There is a particular class for variable names that is only underscores which is a write-only identifier. The value that is assigned is discarded immediately. 
+### Naming Requirements and Conventions
+The naming requirements for variables are they they need to start with a letter, underscore, or a subset of Unicode characters that are greater than the code 00A0. This subset allows characters like accented letters, currency, any math symbol, and greek letters, and much more. The following characters in a variable name can include digits 0-9, an exclamation point !, and lots of other Unicode characters. There is a particular class for variable names that is only underscores which is a write-only identifier. The value that is assigned is discarded immediately.
+
+For naming conventions, variables should be in lowercase and follow a snake_case format for separating words. Some other naming conventions are the following:
+- Naming constants uses all uppercase and snake case (TOTAL_PRICE)
+- A prefix of an underscore(_) indicates that an object is not for public use
+- Avoid abbreviation (index_in rather than indx_in) as it becomes difficult to remember how particular words are abbreviated
+- Composite type names use CamelCase (struct UnitRange)
+
+Stylistic conventions are NOT enforced by the compiler.
+### Operators and Mixed-Type Operations
