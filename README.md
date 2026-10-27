@@ -48,14 +48,14 @@ For naming conventions, variables should be in lowercase and follow a snake_case
 
 Stylistic conventions are NOT enforced by the compiler.
 ### Operators and Mixed-Type Operations
-Because Julia was created for engineers and mathematicians alike, there are lots of mathematical operators and even more mathematical functions, for example, sqrt(x). All mathematical operators, + - * / % ^ \, apply to all numeric primitive types. Julia also supports implicit multiplication, where '2x' is the same as '2*x'. Boolean operators that are available are !, &&, ||, with short-circuiting included. For Strings, the only math symbol operator that is used is for concatenation and is '\*'. Often computer languages use '+' to concatenate strings but the use of '\*' is due to the commutative property in math of both of those symbols. I won't go into the specifics now, but if you are interested, there is an explanation which I find helpful [linked here](https://docs.julialang.org/en/v1/manual/strings/#man-concatenation:~:text=In%20mathematics%2C%20%2B%20usually%20denotes%20a%20commutative%20operation%2C). For chars, simple arithmetic operators are available to use, + - , since chars are stored as their Unicode hex value. For composite types, the '===' and '!==' operators can be used to evaluate equality between objects.
+Because Julia was created for engineers and mathematicians alike, there are lots of mathematical operators and even more mathematical functions, for example, sqrt(x). All mathematical operators, ```+ - * / % ^ \```, apply to all numeric primitive types. Julia also supports implicit multiplication, where '2x' is the same as '2*x'. Boolean operators that are available are !, &&, ||, with short-circuiting included. For Strings, the only math symbol operator that is used is for concatenation and is '\*'. Often computer languages use '+' to concatenate strings but the use of '\*' is due to the commutative property in math of both of those symbols. I won't go into the specifics now, but if you are interested, there is an explanation which I find helpful [linked here](https://docs.julialang.org/en/v1/manual/strings/#man-concatenation:~:text=In%20mathematics%2C%20%2B%20usually%20denotes%20a%20commutative%20operation%2C). For chars, simple arithmetic operators are available to use, + - , since chars are stored as their Unicode hex value. For composite types, the '===' and '!==' operators can be used to evaluate equality between objects.
 
 Mixed-type operations are only allowed in specific cases. Julia allows chars to be added or subtracted by ints to produce different chars since chars are stored as their ASCII value. Chars can be concatenated to Strings with the String concatenation operator '\*'. The operations between ints and floats are always allowed however, Julia will almost always promote the final value of an operation to a float if a float is included, or for non-integer division. Integer division is possible by typing the division operator &divide;. This is possible by simply writing '\div\<tab\>' in between your operands. For example, '20 \div\<tab\> 4' will result in the integer 5 instead of the float 5.0, which would be the result if the / operator was used. \
 In addition to these mixed-type operations, you can parse one type to another, if it allows. For example, you have a String containing an int and you want to parse it to an int. You can run x = parse(Int, "30") in order to get an integer variable containing 30.
 ### Typing and Binding
-Julia is a strong, implicitly, and dynamically typed language. It does offer optional explicit typing, for example, x::Int64 = 2.
+Julia is a strong, implicitly, and dynamically typed language. It does offer optional explicit typing, for example, ```x::Int64 = 2```.
 ## Loops and Selection Code Blocks
-To start with selection code blocks, Julia has the common if-else and if-elseif-else structures, but also a ternary operator '?:'. The following code is an example of an if-elseif-else structure
+To start with selection code blocks, Julia has the common if-else and if-elseif-else structures, but also a ternary operator ```?:```. The following code is an example of an if-elseif-else structure.
 
 ```Julia
 if x < y
@@ -67,4 +67,16 @@ else
 end
 ```
 
-Julia will produce an error if the user tries to evaluate something other than a boolean in the conditional clauses. 
+Julia requires the ```end``` keyword for both loops and selection code blocks so the program knows where these structures end. This keyword supplements what some other languages use to delimit their iterative and selection structures such as a colon for python and curly brackets for Java, C and C++. Julia does not detect indentation, but in order to use the syntax above, each conditional clause and evaluated line has to be on their own line. To write a simple if-statement on one line, a user could do the following,
+
+```
+if x > y; println("x is greater than y") else println("x is not greater than y") end
+```
+
+Note: Julia will produce an error if the user tries to evaluate something other than a boolean in the conditional clauses. 
+### Ternary operator
+The ```?:``` operator in Julia functions very similarly to an if-else statement but is only contained in one line without an ```end``` keyword. The structure for using the operater is ```a ? b : c``` where the space between the terms is necessary for compilation. ```a``` represents the conditional expression, for example ```x > y```. If the condition ```a``` is true, the value/expression at ```b``` is evaluated. If the condition ```a``` is false, the value/expression at ```c``` is evaluated. Take the following example into consideration,
+
+``` println(4 > 5 ? "4 is greater than 5" : "4 is less than 5")```
+
+would output "4 is less than 5". 
