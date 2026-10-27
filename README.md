@@ -54,3 +54,17 @@ Mixed-type operations are only allowed in specific cases. Julia allows chars to 
 In addition to these mixed-type operations, you can parse one type to another, if it allows. For example, you have a String containing an int and you want to parse it to an int. You can run x = parse(Int, "30") in order to get an integer variable containing 30.
 ### Typing and Binding
 Julia is a strong, implicitly, and dynamically typed language. It does offer optional explicit typing, for example, x::Int64 = 2.
+## Loops and Selection Code Blocks
+To start with selection code blocks, Julia has the common if-else and if-elseif-else structures, but also a ternary operator '?:'. The following code is an example of an if-elseif-else structure
+
+'''Julia
+if x < y
+  println("x is less than y")
+elseif y < x
+  println("x is greater than y")
+else
+  println("x and y are equal")
+end
+'''
+
+Julia will produce an error if the user tries to evaluate something other than a boolean in the conditional clauses. 
