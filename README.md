@@ -57,7 +57,7 @@ Julia is a strong, implicitly, and dynamically typed language. It does offer opt
 ## Loops and Selection Code Blocks
 To start with selection code blocks, Julia has the common if-else and if-elseif-else structures, but also a ternary operator '?:'. The following code is an example of an if-elseif-else structure
 
-'''
+```Julia
 if x < y
   println("x is less than y")
 elseif y < x
@@ -65,6 +65,6 @@ elseif y < x
 else
   println("x and y are equal")
 end
-'''
+```
 
 Julia will produce an error if the user tries to evaluate something other than a boolean in the conditional clauses. 
