@@ -81,4 +81,17 @@ The ```?:``` operator in Julia functions very similarly to an if-else statement 
 println(4 > 5 ? "4 is greater than 5" : "4 is less than 5")
 ```
 
-would output "4 is less than 5". 
+would output "4 is less than 5".
+### Short Circuiting
+Julia's use of short-circuiting is very similar to the common programming language Java. Julia will use short circuiting for conditions using the && and the || operators but when using bit-wise operators, like the singular & and |, short circuiting is bypassed. I have provided a section of my controlflow.jl file to prove that Julia does use short-circuiting. Below is the same example.
+
+```Julia
+t(x) = (println("condition " * string(x)); true)
+f(x) = (println("condition " * string(x)); false)
+t(1) || f(2) # Will print "condition 1  true"
+f(1) && t(2) # Will print "condition 1  false"
+
+# Bypassing short-circuit evaluation
+t(1) | f(2) # Prints "condition 1  condition 2  true"
+f(1) & t(2) # Prints "condition 1  condition 2  false"
+```
