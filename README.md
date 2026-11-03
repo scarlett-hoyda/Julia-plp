@@ -28,14 +28,14 @@ Then, you can highlight portions of your code, or put your cursor on the line yo
 To run a hello world program, you can open up your IDE and start a REPL environment or switch into Julia right in your terminal. Then, you type a print statement with hello world in it with no statement terminator punctuation as that is not need in Julia.
 
 ```Julia
-println("Hello World!)
+println("Hello World!")
 ```
 
 Finally, run the program as explained above, and you have just written your first program in Julia!
 ### Comments
 To write comments in Julia, '#' is used for a single line and '#= some comment =#' is used for a multi-line comment.
 ## Data Types and Naming Conventions
-There are lots of data types in Julia such has Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Int128, UInt128, Float16, Float32, Float64, Char, String, Bool, Composite(struct), Rational, Complex, Array, Vector, Tuple, Dict, Set, Union, etc. Some of these data types are primitive and some are complex. As with many programming languages, there are plenty of data types but for this section, I will mainly be focusing on Ints, Floats, Chars, Strings, and maybe Bools.
+There are lots of data types in Julia such has Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Int128, UInt128, Float16, Float32, Float64, Char, String, Bool, Composite(struct), Rational, Complex, Array, Vector, Tuple, Dict, Set, Union, etc. Some of these data types are primitive and some are complex. As with many programming languages, there are plenty of data types but for this section, I will mainly be focusing on Ints, Floats, Chars, Strings, Bools, Array/Vector, Matrix, and Dict.
 
 Overall, all of the primitive data types, and Strings, are immutable however, you can make the Composite data type mutable by adding the word _mutable_ in front of the declaration, like so: _mutable struct ..._. I found this explanation from the Julia documentation about how mutable structs are possible to be helpful
 > “In order to support mutation, such objects are generally allocated on the heap, and have stable memory addresses. A mutable object is like a little container that might hold different values over time, and so can only be reliably identified with its address.”
@@ -77,7 +77,7 @@ Julia requires the ```end``` keyword for both loops and selection code blocks so
 if x > y; println("x is greater than y") else println("x is not greater than y") end
 ```
 
-Note: Julia will produce an error if the user tries to evaluate something other than a boolean in the conditional clauses. 
+Note: Julia will produce an error if the user tries to evaluate something other than a boolean in the conditional clauses. Also, Bool values are stored as Int8, either a 1 for true or a 0 for false, but in written syntax for Julia, a Bool value can be ```true``` or ```false```.
 ### Ternary operator
 The ```?:``` operator in Julia functions very similarly to an if-else statement but is only contained in one line without an ```end``` keyword. The structure for using the operater is ```a ? b : c``` where the space between the terms is necessary for compilation. 'a' represents the conditional expression, for example ```x > y```. If the condition 'a' is true, the value/expression at 'b' is evaluated. If the condition 'a' is false, the value/expression at 'c' is evaluated. Take the following example into consideration,
 
