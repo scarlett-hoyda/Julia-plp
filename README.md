@@ -77,8 +77,9 @@ Note: Julia will produce an error if the user tries to evaluate something other 
 ### Ternary operator
 The ```?:``` operator in Julia functions very similarly to an if-else statement but is only contained in one line without an ```end``` keyword. The structure for using the operater is ```a ? b : c``` where the space between the terms is necessary for compilation. 'a' represents the conditional expression, for example ```x > y```. If the condition 'a' is true, the value/expression at 'b' is evaluated. If the condition 'a' is false, the value/expression at 'c' is evaluated. Take the following example into consideration,
 
-``` 
-println(4 > 5 ? "4 is greater than 5" : "4 is less than 5")
+```
+answer = 4 > 5 ? "4 is greater than 5" : "4 is less than 5"
+println(answer)
 ```
 
 would output "4 is less than 5".
