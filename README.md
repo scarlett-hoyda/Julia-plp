@@ -112,4 +112,4 @@ for p = 1:5
     println(p)
 end
 ```
-Many basic or common needs for loops can be accomplished by both kinds of loops. However, iterating through an array or a matrix in particular is best suited with a for loop. A ```break``` keyword can be used when a user wants to break out of a loop early.
+The ```1:5``` structure used in the for loop clause is the ```range``` object in Julia. It contains the values from 1 to 5 inclusive so, \[1, 2, 3, 4, 5\]. Many basic or common needs for loops can be accomplished by both kinds of loops. However, iterating through an array or a matrix in particular is best suited with a for loop. A ```break``` keyword can be used when a user wants to break out of a loop early. For loops have their loop control variable declared and accessed only within the loop code block while loops have their LCV declared outside of the loop code block and therefore the LCV can be accessed after the loop has completed. Loop code blocks use what the Julia docs call soft local scope and function code blocks use hard local scope. 
