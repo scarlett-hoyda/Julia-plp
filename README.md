@@ -95,3 +95,20 @@ f(1) && t(2) # Will print "condition 1  false"
 t(1) | f(2) # Prints "condition 1  condition 2  true"
 f(1) & t(2) # Prints "condition 1  condition 2  false"
 ```
+### Loops and Repetition Statements
+Julia supports while and for loops. A while loop will loop through a code block as long as it's conditional clause remains true. A for loop uses a counter as a loop control variable and iterates through a code block until the counter reaches a certain value.
+
+```Julia
+# while loop
+i = 0
+while i > 4
+    println(i)
+    i += 1
+end
+
+# for loop
+for p = 1:5
+    println(p)
+end
+```
+Many basic or common needs for loops can be accomplished by both kinds of loops. However, iterating through an array or a matrix in particular is best suited with a for loop. A ```break``` keyword can be used when a user wants to break out of a loop early.
