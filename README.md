@@ -13,19 +13,23 @@ To run programs in Julia, there are a few ways to do so. From a terminal window,
 
 <img width="1425" height="407" alt="julia_tut_2" src="https://github.com/user-attachments/assets/844e95b0-32af-44f1-b6c4-466998dd828b" />
 
-Then, to run a program, you can type a line of code right into the terminal or, to execute a whole file, write 'julia> include("file.jl")'.
+Then, to run a program, you can type a line of code right into the terminal or, to execute a whole file, write the following.
 
-<img width="375" height="106" alt="julia_tut_3" src="https://github.com/user-attachments/assets/9a990b80-2ef0-48fe-ac7c-09b797e1c601" />
+```Julia
+julia> include("file.jl")
+```
 
 In VS Code, you can write your program right from a .jl file but then to run it, you first have to open a Julia REPL terminal window. As a quick aside, REPL stands for read-eval-print loop and it is a specific computer programming environment that executes the program chunk-by-chunk instead compiling and executing it all at once. To open a Julia REPL terminal window, you have to open the Command Palette by using the shortcut Ctrl+Shift+P and then type and select 'Julia: Start REPL' which should open that terminal for you.
 
 <img width="700" height="236" alt="julia_tut_4" src="https://github.com/user-attachments/assets/e40b940a-35bb-4b6f-b644-62a31e2fc4e8" />
 
-Then, you can highlight portions of your code, or put your cursor on the line you want to execute, and click Shift+Enter to execute the program into the terminal in VS Code. Alternatively, you can use the same 'julia> include("file.jl")' statement to execute the program seamlessly.
+Then, you can highlight portions of your code, or put your cursor on the line you want to execute, and click ```Shift+Enter``` to execute the program into the terminal in VS Code. Alternatively, you can use the same 'julia> include("file.jl")' statement to execute the program seamlessly.
 ## Hello World!
-To run a hello world program, you can open up your IDE and start a REPL environment or switch into Julia right in your terminal. Then, you type a print statement with hello world in it: println("Hello World!") with no statement terminator punctuation as that is not need in Julia.
+To run a hello world program, you can open up your IDE and start a REPL environment or switch into Julia right in your terminal. Then, you type a print statement with hello world in it with no statement terminator punctuation as that is not need in Julia.
 
-<img width="332" height="91" alt="julia_tut_5" src="https://github.com/user-attachments/assets/b24aa576-709b-4a44-acc3-2fdc7d38ebd5" />
+```Julia
+println("Hello World!)
+```
 
 Finally, run the program as explained above, and you have just written your first program in Julia!
 ### Comments
