@@ -119,3 +119,34 @@ end
 The ```1:5``` structure used in the for loop clause is the ```range``` object in Julia. It contains the values from 1 to 5 inclusive so, \[1, 2, 3, 4, 5\]. Many basic or common needs for loops can be accomplished by both kinds of loops. However, iterating through an array or a matrix in particular is best suited with a for loop. A ```break``` keyword can be used when a user wants to break out of a loop early. 
 ### Scope in Loops Compared to Functions
 For-loops have their loop control variable declared and accessed only within the loop code block; while loops have their LCV declared outside of the loop code block and therefore the LCV can be accessed after the loop has completed. Loop code blocks use what the Julia docs call soft local scope and function code blocks use hard local scope. Soft local scope is basically what I have explained above but hard local scope is "If x is not already a local variable and an assignment occurs inside of \[a function\], a new local named x is created in the scope of the assignment".
+## Functions
+In Julia, you declare a function by using the ```function``` keyword followed by the name of your function and any parameters needed for it.
+
+```Julia
+function f(x)
+  x+1
+end
+```
+Julia uses implicit returning meaning that the last expression that evaluates to a value will be returned. You can optionally add a return keyword and if you don't want to return anything, you can use ```return nothing``` at the end of your function. Functions can accept multiple parameters of multiple different types and because Julia is implicitly typed, you don't have to identify what the type of the variable is when you declare the parameters in the function heading. You can explicitly require a type of variable to be passed into a function and if another type tries to be passed in, it will cause an error.
+
+```Julia
+function sub(x::Int64, y::Float64)
+  x - y
+end
+
+sub(6, 7) # This would cause an error: ERROR: MethodError: no method matching sun(::Int64, ::Int64)
+```
+Functions in Julia can return multiple values at the same time. This is implemented by separating the return values with commas. When assigning these values to variable, you can use multiple assignments. 
+
+```Julia
+function operations(x, y)
+  x - y, x * y
+end
+
+s, m = operations(6, 3) # Would result in s = 3 and m = 18
+```
+One last thing about the structure of the program that uses functions is that Julia has no rules for placing your functions before or after they are called in the program. But because Julia runs in JIT and REPL, if you don't run your file all at once, you will need to run the code that declares your function, for example by highlighting your function declaration and pressing Shift+Enter, and then run the call to the function. A good way to get around this side effect no matter how you chose to run your program is to define a main() function at the top of your program which includes all the function calls needed in your program and then call main() at the very bottom. (It might be good practice to make sure to ```return nothing``` at the bottom of that main function since void-like functions don't really exist in Julia.)
+### Argument Passing Behavior
+Julia uses pass-by-sharing which is a bit of an in between with pass-by-value and pass-by-reference. Pass-by-sharing values are not copied when they are passed into functions but instead act as new variable binding that is a copy of the reference to the object. Because every type in Julia is treated like an object, this kind of argument passing behavior fits well. (maybe include an analogy here befor submission)
+
+
