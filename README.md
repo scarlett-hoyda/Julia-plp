@@ -164,3 +164,4 @@ end
 
 println(x) #prints 22
 ```
+Generally it is good practice to 1) name all your variables differently, including global and local, and 2) to always use the global keyword even with differing variable names. By using the global keyword, your code becomes easier to read and debug.
