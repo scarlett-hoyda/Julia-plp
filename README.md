@@ -148,5 +148,19 @@ s, m = operations(6, 3) # Would result in s = 3 and m = 18
 One last thing about the structure of the program that uses functions is that Julia has no rules for placing your functions before or after they are called in the program. But because Julia runs in JIT and REPL, if you don't run your file all at once, you will need to run the code that declares your function, for example by highlighting your function declaration and pressing Shift+Enter, and then run the call to the function. A good way to get around this side effect no matter how you chose to run your program is to define a main() function at the top of your program which includes all the function calls needed in your program and then call main() at the very bottom. (It might be good practice to make sure to ```return nothing``` at the bottom of that main function since void-like functions don't really exist in Julia.)
 ### Argument Passing Behavior
 Julia uses pass-by-sharing which is a bit of an in between with pass-by-value and pass-by-reference. Pass-by-sharing values are not copied when they are passed into functions but instead act as new variable binding that is a copy of the reference to the object. Because every type in Julia is treated like an object, this kind of argument passing behavior fits well. (maybe include an analogy here befor submission)
+### Variables in Memory and Code-Block Scope
+All variables, local, global, parameters, arguments, are stored on either the stack or the CPU register. Mutable values like arrays and strings, are stored on the heap. Because CPU registers are quite small, the Julia compiler will choose whether to store something in a CPU register or the stack at run time. This [memory management in Julia](https://discourse.julialang.org/t/memory-management-in-julia/6360) and [understanding how variables are stored](https://discourse.julialang.org/t/understanding-how-variables-are-stored/46491) discussion forums are my sources for this question. 
 
+For the scope of variables in a function, Julia considers functions to use hard local scope. This is different than the scope that is used for loops, as discussed above. Although functions do not follow soft scope, it is good to note that soft scope for assigning a local variable of the same name of an existing global variable depends on if you are using an interactive context(REPL), or a non-interactive context(files). If you are interested in learning more about these differences, [the link here](https://docs.julialang.org/en/v1/manual/variables-and-scoping/#local-scope) explains further these concepts of hard and soft local scope. As i have quoted above, hard scope is "If x is not already a local variable and an assignment occurs inside of \[a function\], a new local named x is created in the scope of the assignment". Because a new local variable is created inside of a function body, you need to include a ```global``` keyword in order to modify a global variable of the same name inside a function.
 
+```Julia
+x = 9 #global variable
+
+function something()
+  x = "hi" #new local
+  println(x) #prints "hi"
+  global x = 22
+end
+
+println(x) #prints 22
+```
